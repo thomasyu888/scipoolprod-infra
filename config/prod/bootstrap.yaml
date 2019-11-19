@@ -1,0 +1,7 @@
+template_path: "remote/bootstrap.yaml"
+stack_name: "bootstrap"
+hooks:
+  before_create:
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-infra/master/bootstrap.yaml --create-dirs -o templates/remote/bootstrap.yaml"
+  before_update:
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-infra/master/bootstrap.yaml --create-dirs -o templates/remote/bootstrap.yaml"
