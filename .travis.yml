@@ -10,13 +10,13 @@ install:
   - pip install pre-commit sceptre sceptre-ssm-resolver
 stages:
   - name: validate
-#  - name: deploy
-#    if: branch = master AND type = push
+  - name: deploy
+    if: branch = master AND type = push
 jobs:
   include:
     - stage: validate
       script:
         - pre-commit autoupdate
         - pre-commit run --all-files
-#    - stage: deploy
-#      script: sceptre launch prod --yes
+    - stage: deploy
+      script: sceptre launch prod --yes
