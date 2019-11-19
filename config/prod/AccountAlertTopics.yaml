@@ -3,7 +3,7 @@ stack_name: "AccountAlertTopics"
 dependencies:
   - "prod/bootstrap.yaml"
 parameters:
-  InitialSubscriberEmail: "aws.<new account>@sagebase"
+  InitialSubscriberEmail: "aws.scipoolprod@sagebase"
   EnableSubscriberSMS: "false"
   BillingThreshold: "1000"
   DeployLambda: "true"
