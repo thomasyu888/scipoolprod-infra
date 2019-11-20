@@ -1,0 +1,15 @@
+template_path: "remote/sc-portfolio-ec2.json"
+stack_name: "sc-portfolio-ec2"
+dependencies:
+  - "prod/sc-ec2vpc-launchrole.yaml"
+  - "prod/sc-enduser-iam.yaml"
+parameters:
+  LaunchRoleName: "SCEC2LaunchRole"
+  CreateEndUsers: "No"
+  LinkedRole1: ""
+  LinkedRole2: ""
+hooks:
+  before_create:
+    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/ec2/sc-portfolio-ec2.json --create-dirs -o templates/remote/sc-portfolio-ec2.json"
+  before_update:
+    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/ec2/sc-portfolio-ec2.json --create-dirs -o templates/remote/sc-portfolio-ec2.json"
