@@ -1,0 +1,9 @@
+template_path: "remote/sc-s3-launchrole.yaml"
+stack_name: "sc-s3-launchrole"
+dependencies:
+  - "prod/essentials.yaml"
+hooks:
+  before_create:
+    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/iam/sc-s3-launchrole.yml --create-dirs -o templates/remote/sc-s3-launchrole.yaml"
+  before_update:
+    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/iam/sc-s3-launchrole.yml --create-dirs -o templates/remote/sc-s3-launchrole.yaml"
