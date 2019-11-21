@@ -8,8 +8,9 @@ parameters:
   CreateEndUsers: "No"
   LinkedRole1: ""
   LinkedRole2: ""
+  RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/"
 hooks:
   before_create:
-    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/s3/sc-portfolio-s3.json --create-dirs -o templates/remote/sc-portfolio-s3.json"
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/s3/sc-portfolio-s3.json --create-dirs -o templates/remote/sc-portfolio-s3.json"
   before_update:
-    - !cmd "curl https://s3.amazonaws.com/aws-service-catalog-reference-architectures/s3/sc-portfolio-s3.json --create-dirs -o templates/remote/sc-portfolio-s3.json"
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/s3/sc-portfolio-s3.json --create-dirs -o templates/remote/sc-portfolio-s3.json"
