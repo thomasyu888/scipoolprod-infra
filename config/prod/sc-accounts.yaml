@@ -1,0 +1,7 @@
+template_path: "sc-accounts.yaml"
+stack_name: "sc-accounts"
+dependencies:
+  - "prod/accounts.yaml"
+  - "prod/sc-enduser-iam.yaml"
+parameters:
+  InitNewUserPassword: !ssm "/infra/InitNewUserPassword"

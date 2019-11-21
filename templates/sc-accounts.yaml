@@ -1,0 +1,22 @@
+Description: IAM accounts for service catalog
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  InitNewUserPassword:
+    Type: String
+    NoEcho: true
+Resources:
+  # !! IMPORTANT !! - AWS API will refuse to remove users that have attached resources.
+  # Therefore you must do the following before deleting them from this file:
+  # 1. Detach or remove the following user resources: login profile, attached
+  #    MFA device, access-keys, ssh-keys, and policies.
+  # 2. Detach the user from all groups.
+  JoeSmithUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: joe.smith@sagebase.org
+      Groups:
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
