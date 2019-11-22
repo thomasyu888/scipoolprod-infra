@@ -21,6 +21,16 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
+  TessThyerUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: tess.thyer@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
   AWSIAMDeveloperUsersGroup:
     Type: 'AWS::IAM::Group'
     Properties:
@@ -40,6 +50,7 @@ Resources:
             Principal:
               AWS:
                 - !GetAtt KhaiDoUser.Arn
+                - !GetAtt TessThyerUser.Arn
             Action:
               - "sts:AssumeRole"
       Path: "/"
