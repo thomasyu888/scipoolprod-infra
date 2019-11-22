@@ -2,5 +2,6 @@ template_path: "accounts.yaml"
 stack_name: "accounts"
 dependencies:
   - "prod/essentials.yaml"
+  - "prod/sc-enduser-iam.yaml"
 parameters:
   InitNewUserPassword: !ssm "/infra/InitNewUserPassword"

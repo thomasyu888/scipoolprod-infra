@@ -18,6 +18,8 @@ Resources:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
         - !Ref AWSIAMBillingManagersGroup
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
