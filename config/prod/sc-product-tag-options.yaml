@@ -1,0 +1,6 @@
+template_path: "sc-product-tag-options.yaml"
+stack_name: "sc-product-tag-options"
+dependencies:
+  - "prod/sc-portfolio-vpc.yaml"
+  - "prod/sc-portfolio-ec2.yaml"
+  - "prod/sc-portfolio-s3.yaml"

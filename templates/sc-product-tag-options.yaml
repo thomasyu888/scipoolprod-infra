@@ -1,0 +1,53 @@
+Description: Tag options for for service catalog products
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  OwnerEmailKhaidDoTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "OwnerEmail"
+      Value: "khai.do@sagebase.org"
+  OwnerEmailTessThyerTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "OwnerEmail"
+      Value: "tess.thyer@sagebase.org"
+  DepartmentPlatformTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "Department"
+      Value: "Platform"
+  ProjectInfrastructureTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "Project"
+      Value: "Infrastructure"
+
+
+  DepartmentPlatformTagOptionAssociation:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: !ImportValue
+        'Fn::Sub': '${AWS::Region}-sc-portfolio-vpc-vpcproductId'
+      TagOptionId: !Ref "DepartmentPlatformTag"
+  ProjectInfrastructureTagOptionAssociation:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: !ImportValue
+        'Fn::Sub': '${AWS::Region}-sc-portfolio-vpc-vpcproductId'
+      TagOptionId: !Ref "ProjectInfrastructureTag"
+  OwnerEmailKhaidDoTagOptionAssociation:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: !ImportValue
+        'Fn::Sub': '${AWS::Region}-sc-portfolio-vpc-vpcproductId'
+      TagOptionId: !Ref "OwnerEmailKhaidDoTag"
+  OwnerEmailTessThyerTagOptionAssociation:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: !ImportValue
+        'Fn::Sub': '${AWS::Region}-sc-portfolio-vpc-vpcproductId'
+      TagOptionId: !Ref "OwnerEmailTessThyerTag"
