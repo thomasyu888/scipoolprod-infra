@@ -213,3 +213,7 @@ Outputs:
     Value: !Ref AWSIAMEnforceMfaPolicy
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-EnforceMfaPolicy'
+  AWSIAMAllUsersGroup:
+    Value: !Ref AWSIAMAllUsersGroup
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-AllUsersGroup'

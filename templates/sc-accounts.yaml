@@ -16,6 +16,8 @@ Resources:
       UserName: joe.smith@sagebase.org
       Groups:
         - !ImportValue
+          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
+        - !ImportValue
           'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
