@@ -1,0 +1,31 @@
+template_path: "sc-tag-options.j2"
+stack_name: "sc-tag-options"
+dependencies:
+  - "prod/sc-portfolio-vpc.yaml"
+  - "prod/sc-portfolio-ec2.yaml"
+  - "prod/sc-portfolio-s3.yaml"
+sceptre_user_data:
+  Departments:
+    - "Platform"
+    - "CompOnc"
+    - "SysBio"
+  Projects:
+    - "Infrastructure"
+    - "dream"
+    - "htan"
+    - "iAtlas"
+    - "amp-ad"
+  OwnerEmails:
+    - "khai.do@sagbase.org"
+    - "tess.thyer@sagebase.org"
+    - "joe.smith@sagebase.org"
+  ProductIDs:
+    - "prod-bnryxp4layo3c"
+    - "prod-h5baovili54ve"
+    - "prod-gobxeautyvjte"
+    - "prod-642rd7anfvfbc"
+    - "prod-f43rwv2pwsknk"
+    - "prod-2imqg7dpucot6"
+    - "prod-brm7et7sxqtdo"
+    - "prod-k2vep6hvcdaug"
+    - "prod-zrb4keqx67iwk"

@@ -1,0 +1,71 @@
+Description: Tag options for for service catalog products
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+{% for department in sceptre_user_data.Departments %}
+  {{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "Department"
+      Value: {{ department }}
+{% endfor %}
+{% for project in sceptre_user_data.Projects %}
+  {{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "Project"
+      Value: {{ project }}
+{% endfor %}
+{% for email in sceptre_user_data.OwnerEmails %}
+  {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag:
+    Type: AWS::ServiceCatalog::TagOption
+    Properties:
+      Active: true
+      Key: "OwnerEmail"
+      Value: {{ email }}
+{% endfor %}
+
+{% for id in sceptre_user_data.ProductIDs %}
+  {% for department in sceptre_user_data.Departments %}
+  {{ department.replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: "{{ id }}"
+      TagOptionId: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+  {% endfor %}
+  {% for project in sceptre_user_data.Projects %}
+  {{ project.replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: "{{ id }}"
+      TagOptionId: !Ref "{{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag"
+  {% endfor %}
+  {% for email in sceptre_user_data.OwnerEmails %}
+  {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
+    Type: AWS::ServiceCatalog::TagOptionAssociation
+    Properties:
+      ResourceId: "{{ id }}"
+      TagOptionId: !Ref "{{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag"
+  {% endfor %}
+{% endfor %}
+
+Outputs:
+{% for department in sceptre_user_data.Departments %}
+  {{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag:
+    Value: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+    Export:
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+{% endfor %}
+{% for project in sceptre_user_data.Projects %}
+  {{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag:
+    Value: !Ref "{{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag"
+    Export:
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ project.replace('.','').replace('-','').replace('_','') }}OwnerEmailTag"
+{% endfor %}
+{% for email in sceptre_user_data.OwnerEmails %}
+  {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag:
+    Value: !Ref "{{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag"
+    Export:
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag"
+{% endfor %}
