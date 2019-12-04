@@ -111,7 +111,6 @@ Resources:
     Type: 'AWS::IAM::Group'
     Properties:
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/ReadOnlyAccess
         - !Ref AWSIAMEnforceMfaPolicy
   AWSIAMBillingManagersGroup:
     Type: 'AWS::IAM::Group'
