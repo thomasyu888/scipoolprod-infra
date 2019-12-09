@@ -1,0 +1,50 @@
+Description: Template Constraint for VPC.
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  TemplateConstraint:
+    Type: AWS::ServiceCatalog::LaunchTemplateConstraint
+    Properties:
+      AcceptLanguage: en
+      Description: Limit VPC selection.
+      PortfolioId: port-z2m47jv6sckgi
+      ProductId: prod-zrb4keqx67iwk
+      Rules: >-
+        {
+          "LimitVPC": {
+            "Assertions": [
+              {
+                "Assert": {
+                  "Fn::Contains": [
+                    [
+                      "vpc-0d92dc681a4078458"
+                    ],
+                    {
+                      "Ref": "VPC"
+                    }
+                  ]
+                },
+                "AssertDescription": "VPC must be vpc-0d92dc681a4078458"
+              }
+            ]
+          },
+          "LimitSubnets": {
+            "Assertions": [
+              {
+                "Assert": {
+                  "Fn::EachMemberEquals": [
+                    {
+                      "Fn::ValueOfAll": [
+                        "AWS::EC2::Subnet::Id",
+                        "VpcId"
+                      ]
+                    },
+                    {
+                      "Ref": "VPC"
+                    }
+                  ]
+                },
+                "AssertDescription": "Every member of all subnet type parameters should belong to the vpc specified"
+              }
+            ]
+          }
+        }
