@@ -1,0 +1,5 @@
+template_path: "sc-vpc-constraint.yaml"
+stack_name: "sc-vpc-constraint-on-portfolio-ec2-product-linux"
+parameters:
+  PortfolioID: port-z2m47jv6sckgi  # Service Catalog EC2 Reference Architecture
+  ProductID: prod-zrb4keqx67iwk  # Amazon Elastic Compute Cloud (EC2) Linux
