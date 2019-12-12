@@ -1,8 +1,6 @@
-sudo: false
 language: python
 python: 3.6
 cache: pip
-fast_finish: true
 install:
   - wget https://github.com/Sage-Bionetworks/infra-utils/archive/master.zip -O /tmp/infra-utils.zip
   - unzip -j -n /tmp/infra-utils.zip -x "infra-utils-master/.gitignore" "infra-utils-master/LICENSE" "infra-utils-master/*.md" "infra-utils-master/aws/*"
@@ -13,6 +11,7 @@ stages:
   - name: deploy
     if: branch = master AND type = push
 jobs:
+  fast_finish: true
   include:
     - stage: validate
       script:
