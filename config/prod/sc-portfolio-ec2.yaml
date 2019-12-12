@@ -1,4 +1,4 @@
-template_path: "remote/sc-portfolio-ec2.json"
+template_path: "remote/sc-portfolio-ec2.yaml"
 stack_name: "sc-portfolio-ec2"
 dependencies:
   - "prod/sc-ec2vpc-launchrole.yaml"
@@ -11,6 +11,6 @@ parameters:
   RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/"
 hooks:
   before_create:
-    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/ec2/sc-portfolio-ec2.json --create-dirs -o templates/remote/sc-portfolio-ec2.json"
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/ec2/sc-portfolio-ec2.yaml --create-dirs -o templates/remote/sc-portfolio-ec2.yaml"
   before_update:
-    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/ec2/sc-portfolio-ec2.json --create-dirs -o templates/remote/sc-portfolio-ec2.json"
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-service-catalog-reference-architectures/master/ec2/sc-portfolio-ec2.yaml --create-dirs -o templates/remote/sc-portfolio-ec2.yaml"
