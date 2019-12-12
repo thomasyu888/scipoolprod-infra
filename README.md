@@ -1,6 +1,14 @@
 # Overview
 A project to install, configure and manage an AWS account.
 
+## Purpose
+The purpose of this project is to build a self service provisioning
+system using the
+[AWS service catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html).
+
+We are leveraging the [AWS service catalog reference architecure](https://github.com/Sage-Bionetworks/aws-service-catalog-reference-architectures)
+to build out the service catalog.
+
 ## Instructions to create or update CF stacks
 
 ```
@@ -40,3 +48,5 @@ automatically run on every commit.
 to store secrets for this project.  Sceptre retrieves the secrets using
 a [sceptre ssm resolver](https://github.com/cloudreach/sceptre/tree/v1/contrib/ssm-resolver)
 and passes them to the cloudformation stack on deployment.
+
+service catalog
