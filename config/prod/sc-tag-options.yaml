@@ -3,7 +3,7 @@ stack_name: "sc-tag-options"
 dependencies:
   - "prod/sc-portfolio-vpc.yaml"
   - "prod/sc-portfolio-ec2.yaml"
-  - "prod/sc-portfolio-s3.yaml"
+  #- "prod/sc-portfolio-s3.yaml"
 sceptre_user_data:
   Departments:
     - "Platform"
@@ -21,5 +21,5 @@ sceptre_user_data:
     - "joe.smith@sagebase.org"
   ProductIDs:
     - "port-z2m47jv6sckgi"   # EC2 RA portfolio
-    - "port-a3j2sw6acrgew"   # S3 RA portfolio
+    #- "port-a3j2sw6acrgew"   # S3 RA portfolio
     - "port-haxyv6tql4any"   # VPC RA portfolio
