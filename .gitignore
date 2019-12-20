@@ -123,3 +123,6 @@ lambdas/*.zip
 
 # temp files
 /temp/
+
+# pipenv
+Pipfile*
