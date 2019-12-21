@@ -18,4 +18,4 @@ jobs:
         - pre-commit autoupdate
         - pre-commit run --all-files
     - stage: deploy
-      script: sceptre launch prod --yes
+      script: sceptre --debug launch prod --yes
