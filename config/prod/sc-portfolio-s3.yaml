@@ -4,6 +4,7 @@ dependencies:
   - "prod/sc-s3-launchrole.yaml"
   - "prod/sc-enduser-iam.yaml"
 parameters:
+  ProductVersionName: "v1.0"
   LaunchRoleName: "SCEC2LaunchRole"
   CreateEndUsers: "No"
   LinkedRole1: ""
