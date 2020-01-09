@@ -1,0 +1,17 @@
+template_path: "remote/sc-portfolio-s3.yaml"
+stack_name: "sc-portfolio-s3"
+dependencies:
+  - "prod/sc-s3-launchrole.yaml"
+  - "prod/sc-enduser-iam.yaml"
+parameters:
+  ProductVersionName: "v1.0"
+  LaunchRoleName: "SCEC2LaunchRole"
+  CreateEndUsers: "No"
+  LinkedRole1: ""
+  LinkedRole2: ""
+  RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/"
+hooks:
+  before_create:
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/s3/sc-portfolio-s3.yaml --create-dirs -o templates/remote/sc-portfolio-s3.yaml"
+  before_update:
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/s3/sc-portfolio-s3.yaml --create-dirs -o templates/remote/sc-portfolio-s3.yaml"
