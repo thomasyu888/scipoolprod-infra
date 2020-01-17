@@ -15,10 +15,10 @@ Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Join
-        - ''
-        - - 'test-ssm-macro-bucket-'
-        - - Fn::Transform:
+      Tags:
+        - Key: 'AdminCentralAwsAccountId'
+          Name:
+            Fn::Transform:
               Name: "SsmParam"
               Parameters:
                 Type: "SecureString"
