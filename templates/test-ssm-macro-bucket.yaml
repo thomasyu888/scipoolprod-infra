@@ -16,12 +16,13 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Join
-        - 'test-ssm-macro-bucket-'
-        - Fn::Transform:
-            Name: "SsmParam"
-            Parameters:
-              Type: "SecureString"
-              Name: "/infra/AdmincentralAwsAccountId"
+        - ''
+        - - 'test-ssm-macro-bucket-'
+        - - Fn::Transform:
+              Name: "SsmParam"
+              Parameters:
+                Type: "SecureString"
+                Name: "/infra/AdmincentralAwsAccountId"
 Outputs:
   Bucket:
     Value: !Ref Bucket
