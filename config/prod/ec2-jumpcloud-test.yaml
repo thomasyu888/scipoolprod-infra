@@ -1,6 +1,0 @@
-template_path: "ec2-jumpcloud-test.yaml"
-stack_name: "ec2-jumpcloud-test"
-dependencies:
-  - "prod/bootstrap.yaml"
-parameters:
-  OwnerEmail: "tess.thyer@sagebase.org"
