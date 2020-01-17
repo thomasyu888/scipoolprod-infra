@@ -1,6 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'Service Catalog: EC2 Reference Architecture(fdp-1oc5f3ula).'
 Metadata:
+  cfn-lint:
+    config:
+      ignore_checks:
+        - E1022
+        - E3012
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
