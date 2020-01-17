@@ -19,7 +19,7 @@ Resources:
     Properties:
       Tags:
         - Key: 'AdminCentralAwsAccountId'
-          Name:
+          Value:
             Fn::Transform:
               Name: "SsmParam"
               Parameters:
