@@ -6,5 +6,7 @@ parameters:
   VpcPublicRouteTable: rtb-057f64d254b0f8712
   VpnCidr: 10.1.0.0/16
 hooks:
+  before_create:
+    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-infra/master/peer-route-config.yaml --create-dirs -o templates/remote/peer-route-config.yaml"
   before_update:
     - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/aws-infra/master/peer-route-config.yaml --create-dirs -o templates/remote/peer-route-config.yaml"
