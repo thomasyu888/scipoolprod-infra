@@ -18,6 +18,7 @@ sceptre_user_data:
     - "khai.do@sagbase.org"
     - "tess.thyer@sagebase.org"
     - "joe.smith@sagebase.org"
+    - "xengie.doan@sagebase.org"
   ProductIDs:
     - "port-z2m47jv6sckgi"   # EC2 RA portfolio
     - "port-4suvomoj5jto6"   # S3 basic portfolio
