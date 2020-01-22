@@ -34,3 +34,15 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
+  XengieDoanUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: "xengie.doan@sagebase.org"
+      Groups:
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
