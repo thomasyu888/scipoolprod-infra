@@ -15,7 +15,7 @@ sceptre_user_data:
     - "iAtlas"
     - "amp-ad"
     - "genie"
-    - "NF"
+    - "neurofibromatosis"
     - "challenge" # Sometimes challenges aren't always DREAM
     - "pson"
     - "csbs"
