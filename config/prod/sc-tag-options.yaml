@@ -19,6 +19,7 @@ sceptre_user_data:
     - "challenge" # Sometimes challenges aren't always DREAM
     - "pson"
     - "csbs"
+    - "dream/metadata"
   OwnerEmails:
     - "khai.do@sagbase.org"
     - "tess.thyer@sagebase.org"
