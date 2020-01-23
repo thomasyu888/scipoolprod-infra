@@ -1,0 +1,4 @@
+template_path: "cfn-ssm-param-permission.yaml"
+stack_name: "cfn-ssm-param-permission"
+dependencies:
+  - "prod/cfn-ssm-param-macro.yaml"
