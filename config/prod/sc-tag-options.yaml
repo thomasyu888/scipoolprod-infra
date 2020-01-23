@@ -14,6 +14,11 @@ sceptre_user_data:
     - "htan"
     - "iAtlas"
     - "amp-ad"
+    - "genie"
+    - "NF"
+    - "challenge" # Sometimes challenges aren't always DREAM
+    - "pson"
+    - "csbs"
   OwnerEmails:
     - "khai.do@sagbase.org"
     - "tess.thyer@sagebase.org"
