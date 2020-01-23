@@ -1,0 +1,4 @@
+template_path: "cfn-ssm-param-policy.yaml"
+stack_name: "cfn-ssm-param-policy"
+dependencies:
+  - "prod/cfn-ssm-param-macro.yaml"
