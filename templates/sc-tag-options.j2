@@ -32,7 +32,7 @@ Resources:
     Type: AWS::ServiceCatalog::TagOptionAssociation
     Properties:
       ResourceId: "{{ id }}"
-      TagOptionId: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+      TagOptionId: !Ref "{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
   {% endfor %}
   {% for project in sceptre_user_data.Projects %}
   {{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}TagAssociationProd{{ id.split('-')[1] }}:
@@ -52,16 +52,16 @@ Resources:
 
 Outputs:
 {% for department in sceptre_user_data.Departments %}
-  {{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag:
-    Value: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+  {{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag:
+    Value: !Ref "{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
     Export:
-      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
 {% endfor %}
 {% for project in sceptre_user_data.Projects %}
-  {{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag:
+  {{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag:
     Value: !Ref "{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag"
     Export:
-      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}OwnerEmailTag"
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag"
 {% endfor %}
 {% for email in sceptre_user_data.OwnerEmails %}
   {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag:
