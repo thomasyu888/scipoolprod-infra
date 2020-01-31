@@ -1,4 +1,4 @@
-template_path: "remote/sc-enduser-iam-development.yaml"
+template_path: "remote/sc-enduser-iam.yaml"
 stack_name: "sc-enduser-development-iam"
 dependencies:
   - "prod/essentials.yaml"

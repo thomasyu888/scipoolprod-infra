@@ -18,7 +18,9 @@ Resources:
         - !ImportValue
           'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
         - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
@@ -30,7 +32,9 @@ Resources:
         - !ImportValue
           'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
         - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
@@ -42,7 +46,7 @@ Resources:
         - !ImportValue
           'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
         - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
