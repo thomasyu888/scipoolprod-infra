@@ -18,10 +18,10 @@ Resources:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
         - !Ref AWSIAMBillingManagersGroup
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
+        # - !ImportValue
+        #   'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        # - !ImportValue
+        #   'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
@@ -32,10 +32,10 @@ Resources:
       Groups:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
+        # - !ImportValue
+        #   'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        # - !ImportValue
+        #   'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
