@@ -4,7 +4,7 @@ dependencies:
   - "prod/sc-s3-launchrole.yaml"
   - "prod/sc-enduser-iam.yaml"
 parameters:
-  ProductVersionName: "v1.2.0"
+  ProductVersionName: "v1.2.1"
   LaunchRoleName: "SCS3LaunchRole"
   PrincipalRoleName1: "ServiceCatalogEndusers"
   PrincipalGroupName1: "ServiceCatalogEndusers"
