@@ -4,11 +4,10 @@ dependencies:
   - "prod/sc-s3-launchrole.yaml"
   - "prod/sc-enduser-iam.yaml"
 parameters:
-  ProductVersionName: "v1.1.1"
+  ProductVersionName: "v1.2.0"
   LaunchRoleName: "SCS3LaunchRole"
-  CreateEndUsers: "No"
-  LinkedRole1: ""
-  LinkedRole2: ""
+  PrincipalRoleName1: "ServiceCatalogEndusers"
+  PrincipalGroupName1: "ServiceCatalogEndusers"
   RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/"
 hooks:
   before_create:
