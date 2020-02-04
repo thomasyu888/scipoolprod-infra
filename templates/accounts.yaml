@@ -39,6 +39,36 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
+  XavierSchildwachterUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: x.schildwachter@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+        - !Ref AWSIAMBillingManagersGroup
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AaronHaydenUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: aaron.hayden@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+        - !Ref AWSIAMBillingManagersGroup
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
   AWSIAMDeveloperUsersGroup:
     Type: 'AWS::IAM::Group'
     Properties:
@@ -59,6 +89,8 @@ Resources:
               AWS:
                 - !GetAtt KhaiDoUser.Arn
                 - !GetAtt TessThyerUser.Arn
+                - !GetAtt XavierSchildwachterUser.Arn
+                - !GetAtt AaronHaydenUser.Arn
             Action:
               - "sts:AssumeRole"
       Path: "/"
