@@ -4,7 +4,7 @@ dependencies:
   - "prod/sc-ec2vpc-launchrole.yaml"
   - "prod/sc-enduser-development-iam.yaml"
 parameters:
-  ProductVersionName: "v1.0"
+  ProductVersionName: "v1.0.1"
   LaunchRoleName: "SCEC2LaunchRole"
   RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/"
   PrincipalRoleName1: "ServiceCatalogDevelopmentEndusers"
