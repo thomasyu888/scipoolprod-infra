@@ -2,7 +2,9 @@ template_path: "sc-tag-options.j2"
 stack_name: "sc-tag-options"
 dependencies:
   - "prod/sc-portfolio-ec2.yaml"
+  - "prod/sc-portfolio-ec2-development.yaml"
   - "prod/sc-portfolio-s3-basic.yaml"
+  - "prod/sc-portfolio-s3-basic-development.yaml"
 sceptre_user_data:
   Departments:
     - "CompOnc"
@@ -10,7 +12,7 @@ sceptre_user_data:
     - "SysBio"
   Projects:
     - "amp-ad"
-    - "challenge" # Sometimes challenges aren't always DREAM
+    - "challenge"  # Sometimes challenges aren't always DREAM
     - "csbs"
     - "dream"
     - "dream/metadata"
@@ -21,10 +23,21 @@ sceptre_user_data:
     - "neurofibromatosis"
     - "pson"
   OwnerEmails:
+    - "bruce.hoff@sagebase.org"
+    - "duminda.aluthgamage@sagebase.org"
+    - "jake.gockley@sagebase.org"
+    - "james.eddy@sagebase.org"
     - "joe.smith@sagebase.org"
+    - "kenneth.daily@sagebase.org"
     - "khai.do@sagbase.org"
+    - "larsson.omberg@sagebase.org"
+    - "marco.marasca@sagebase.org"
     - "tess.thyer@sagebase.org"
+    - "vanessa.barone@sagebase.org"
+    - "william.poehlman@sagebase.org"
     - "xengie.doan@sagebase.org"
   ProductIDs:
     - "port-z2m47jv6sckgi"   # EC2 RA portfolio
     - "port-4suvomoj5jto6"   # S3 basic portfolio
+    - "port-faptnwqjadgnu"   # EC2 development porfolio
+    - "port-xdumjjreeuohg"   # S3 development portfolio
