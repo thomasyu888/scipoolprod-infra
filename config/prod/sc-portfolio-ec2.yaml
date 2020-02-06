@@ -4,7 +4,7 @@ dependencies:
   - "prod/sc-ec2vpc-launchrole.yaml"
   - "prod/sc-enduser-iam.yaml"
 parameters:
-  ProductVersionName: "v1.5.1"
+  ProductVersionName: "v1.5.2"
   LaunchRoleName: "SCEC2LaunchRole"
   PrincipalRoleName1: "ServiceCatalogEndusers"
   PrincipalGroupName1: "ServiceCatalogEndusers"
