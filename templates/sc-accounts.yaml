@@ -194,3 +194,15 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
+  XindiGuoUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: xindi.guo@sagebase.org
+      Groups:
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
