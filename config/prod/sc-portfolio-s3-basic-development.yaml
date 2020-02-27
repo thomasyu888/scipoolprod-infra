@@ -4,11 +4,11 @@ dependencies:
   - "prod/sc-s3-launchrole.yaml"
   - "prod/sc-enduser-development-iam.yaml"
 parameters:
-  ProductVersionName: "v1.2.1"
   LaunchRoleName: "SCS3LaunchRole"
   PrincipalRoleName1: "ServiceCatalogDevelopmentEndusers"
   PrincipalGroupName1: "ServiceCatalogDevelopmentEndusers"
   RepoRootURL: "https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/"
+  StackDatetime: !date
 hooks:
   before_create:
     - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/s3/sc-portfolio-s3-basic-development.yaml --create-dirs -o templates/remote/sc-portfolio-s3-basic-development.yaml"
