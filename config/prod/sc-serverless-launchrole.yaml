@@ -1,9 +1,0 @@
-template_path: "remote/sc-serverless-launchrole.yaml"
-stack_name: "sc-serverless-launchrole"
-dependencies:
-  - "prod/essentials.yaml"
-hooks:
-  before_create:
-    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/iam/sc-serverless-launchrole.yaml --create-dirs -o templates/remote/sc-serverless-launchrole.yaml"
-  before_update:
-    - !cmd "curl https://s3.amazonaws.com/{{stack_group_config.admincentral_cf_bucket}}/scipoolprod-sc-lib-infra/master/iam/sc-serverless-launchrole.yaml --create-dirs -o templates/remote/sc-serverless-launchrole.yaml"
