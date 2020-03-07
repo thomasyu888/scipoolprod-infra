@@ -86,30 +86,6 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
-  DumindaAluthgamageUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: duminda.aluthgamage@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  JamesEddyUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: james.eddy@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
   ThomasYuUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -122,70 +98,10 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
-  VanessaBaronUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: vanessa.barone@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  LarssonOmbergUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: larsson.omberg@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  JakeGockleyUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: jake.gockley@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  KennethDailyUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: kenneth.daily@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
   KelseyMontgomeryUser:
     Type: 'AWS::IAM::User'
     Properties:
       UserName: kelsey.montgomery@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  AnnaGreenwoodUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: anna.greenwood@sagebase.org
       Groups:
         - !ImportValue
           'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
@@ -218,58 +134,10 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
-  VerenaChungUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: verena.chung@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  JinetaBanerjeeUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: jineta.banerjee@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  LauraHeathUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: laura.heath@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
   CindyMolitorUser:
     Type: 'AWS::IAM::User'
     Properties:
       UserName: cindy.molitor@sagebase.org
-      Groups:
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
-        - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
-  MilenNikolovUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: milen.nikolov@sagebase.org
       Groups:
         - !ImportValue
           'Fn::Sub': '${AWS::Region}-accounts-AllUsersGroup'
