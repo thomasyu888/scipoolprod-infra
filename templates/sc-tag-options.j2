@@ -2,7 +2,7 @@ Description: Tag options for for service catalog products
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
 {% for department in sceptre_user_data.Departments %}
-  {{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag:
+  {{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag:
     Type: AWS::ServiceCatalog::TagOption
     Properties:
       Active: true
@@ -10,7 +10,7 @@ Resources:
       Value: {{ department }}
 {% endfor %}
 {% for project in sceptre_user_data.Projects %}
-  {{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag:
+  {{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag:
     Type: AWS::ServiceCatalog::TagOption
     Properties:
       Active: true
@@ -28,18 +28,18 @@ Resources:
 
 {% for id in sceptre_user_data.ProductIDs %}
   {% for department in sceptre_user_data.Departments %}
-  {{ department.replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
+  {{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}TagAssociationProd{{ id.split('-')[1] }}:
     Type: AWS::ServiceCatalog::TagOptionAssociation
     Properties:
       ResourceId: "{{ id }}"
-      TagOptionId: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+      TagOptionId: !Ref "{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
   {% endfor %}
   {% for project in sceptre_user_data.Projects %}
-  {{ project.replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
+  {{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}TagAssociationProd{{ id.split('-')[1] }}:
     Type: AWS::ServiceCatalog::TagOptionAssociation
     Properties:
       ResourceId: "{{ id }}"
-      TagOptionId: !Ref "{{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag"
+      TagOptionId: !Ref "{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag"
   {% endfor %}
   {% for email in sceptre_user_data.OwnerEmails %}
   {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}TagAssociationProd{{ id.split('-')[1] }}:
@@ -52,16 +52,16 @@ Resources:
 
 Outputs:
 {% for department in sceptre_user_data.Departments %}
-  {{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag:
-    Value: !Ref "{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+  {{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag:
+    Value: !Ref "{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
     Export:
-      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ department.replace('.','').replace('-','').replace('_','') }}DepartmentTag"
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ department.replace('.','').replace('-','').replace('_','').replace('/','') }}DepartmentTag"
 {% endfor %}
 {% for project in sceptre_user_data.Projects %}
-  {{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag:
-    Value: !Ref "{{ project.replace('.','').replace('-','').replace('_','') }}ProjectTag"
+  {{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag:
+    Value: !Ref "{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag"
     Export:
-      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ project.replace('.','').replace('-','').replace('_','') }}OwnerEmailTag"
+      Name: !Sub "${AWS::Region}-${AWS::StackName}-{{ project.replace('.','').replace('-','').replace('_','').replace('/','') }}ProjectTag"
 {% endfor %}
 {% for email in sceptre_user_data.OwnerEmails %}
   {{ email.split('@')[0].replace('.','').replace('-','').replace('_','') }}OwnerEmailTag:

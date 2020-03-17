@@ -19,7 +19,9 @@ Resources:
         - !Ref AWSIAMDeveloperUsersGroup
         - !Ref AWSIAMBillingManagersGroup
         - !ImportValue
-          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-EndUserGroupName'
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
@@ -30,6 +32,24 @@ Resources:
       Groups:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AaronHaydenUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: aaron.hayden@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-iam-ServiceCatalogEndusers-GroupName'
+        - !ImportValue
+          'Fn::Sub': '${AWS::Region}-sc-enduser-development-iam-ServiceCatalogDevelopmentEndusers-GroupName'
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
@@ -53,6 +73,7 @@ Resources:
               AWS:
                 - !GetAtt KhaiDoUser.Arn
                 - !GetAtt TessThyerUser.Arn
+                - !GetAtt AaronHaydenUser.Arn
             Action:
               - "sts:AssumeRole"
       Path: "/"
